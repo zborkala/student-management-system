@@ -88,6 +88,30 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 14px;
         }
+
+        .form-control {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-control input, .form-control select {
+            border: 1px solid #dadada;
+            padding: 4px;
+            font-size: 14px;
+            max-width: 400px;
+        }
+
+        .btn {
+            background: green; 
+            color: white; 
+            padding: 8px; 
+            border: none; 
+            width: 400px; 
+            max-width: 100%; 
+            border-radius: 20px;
+        }
         
     </style>
 </head>
@@ -112,50 +136,40 @@
         </aside>
         <div class="mainbar">
             <div class="card">
-                <table class="mytable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Class</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% data.forEach(student=> { %>
-                            <tr>
-                                <td>
-                                    <%= student.id %>
-                                </td>
-                                <td>
-                                    <%= student.name %>
-                                </td>
-                                <td>
-                                    <%= student.class %>
-                                </td>
-                                <td>
-                                    <%= student.age %>
-                                </td>
-                                <td>
-                                    <%= student.gender %>
-                                </td>
-                                <td>
-                                    <%= student.phone %>
-                                </td>
-                                <td>
-                                    <div class="action-group">
-                                        <a href="" class="action-btn" style="background: blue; ">View</a>
-                                        <a href="" class="action-btn" style="background: rgb(193, 76, 191); ">Edit</a>
-                                        <button class="action-btn" style="background: red; ">Delete</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <% }) %>
-                    </tbody>
-                </table>
+                <h2 style="text-transform: uppercase;">Add Student Form</h2>
+                <form method="post" action="/store_student">
+
+                    <div class="form-control">
+                        <label>Full Name</label>
+                        <input type="text" name="name">
+                    </div>
+
+                    <div class="form-control">
+                        <label>Class</label>
+                        <input type="text" name="class">
+                    </div>
+
+                    <div class="form-control">
+                        <label>Age</label>
+                        <input type="text" name="age">
+                    </div>
+
+                    <div class="form-control">
+                        <label>Phone</label>
+                        <input type="text" name="phone">
+                    </div>
+
+                    <div class="form-control">
+                        <label>Gender</label>
+                        <select name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+
+                    <button class="btn">SUBMIT</button>
+                </form>
             </div>
         </div>
     </div>
